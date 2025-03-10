@@ -1,12 +1,43 @@
 package com.service.productservice.Controllers;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.service.productservice.Models.Product;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class productController {
 
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable("id") Long id) {
+        return new Product();
+    }
 
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return new ArrayList<>();
+    }
+
+    @PostMapping
+    public Product createProduct(@RequestBody Product product){
+        return new Product();
+    }
+
+    @PatchMapping("/{id}")
+    public Product updateProduct(@PathVariable("id") Long id,@RequestBody Product product){
+        return new Product();
+    }
+
+    @PutMapping("/{id}")
+    public Product replaceProduct(@PathVariable("id") Long id,@RequestBody Product product){
+        return new Product();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable("id") Long id){
+
+    }
 }

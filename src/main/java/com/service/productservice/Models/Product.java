@@ -9,7 +9,7 @@ public class Product extends BaseModel {
 
     private String imageUrl;
     private String name;
-    private int price;
+    private double price;
     private Category category;
     private String description;
 

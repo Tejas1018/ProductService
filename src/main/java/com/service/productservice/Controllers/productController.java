@@ -4,6 +4,7 @@ package com.service.productservice.Controllers;
 import com.service.productservice.Exceptions.ProductNotFoundException;
 import com.service.productservice.Models.Product;
 import com.service.productservice.Service.ProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ import java.util.List;
 public class productController {
 
     ProductService productService;
-    public productController(ProductService productService) {
+    public productController(@Qualifier("selfProductService") ProductService productService) {
         this.productService = productService;
     }
     @GetMapping("/{id}")

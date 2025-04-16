@@ -17,7 +17,7 @@ public class globalHandler {
     public void ArthemeticException(){
 
     }
-    //If any execption is not handling create a paret exception to handle all the exceptions
+    //If any execption is not handling create a parent exception to handle all the exceptions
     @ExceptionHandler(Exception.class)
     public void exceptionHandling(){
 

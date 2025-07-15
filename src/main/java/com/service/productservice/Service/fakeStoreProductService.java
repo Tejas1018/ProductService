@@ -15,8 +15,8 @@ import java.util.List;
 public class fakeStoreProductService implements ProductService{
 
     private RestTemplate restTemplate;
-    public fakeStoreProductService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public fakeStoreProductService(RestTemplate restTemplate){
+    this.restTemplate = restTemplate;
     }
 
     private Product ConvertFakeStoreProductDtoToProduct(FakeStoreProductDTO fakeStoreProductDTO) {
@@ -56,5 +56,15 @@ public class fakeStoreProductService implements ProductService{
             products.add(ConvertFakeStoreProductDtoToProduct(fakeStoreProductDTO));
         }
         return products;
+    }
+
+    @Override
+    public Product createProduct(Product product) {
+        return null;
+    }
+
+    @Override
+    public Product replaceProduct(int ProductId, Product product) {
+        return null;
     }
 }

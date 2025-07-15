@@ -9,12 +9,12 @@ import lombok.Setter;
 @Getter
 @Entity(name = "products")
 public class Product extends BaseModel {
-
-    private String imageUrl;
     private String name;
+    private String imageUrl;
     private double price;
+    private String description;
     @ManyToOne
     private Category category;
-    private String description;
+
 
 }

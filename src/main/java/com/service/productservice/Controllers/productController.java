@@ -17,6 +17,7 @@ import java.util.List;
 public class productController {
 
     ProductService productService;
+
     public productController(@Qualifier("selfProductService") ProductService productService) {
         this.productService = productService;
     }
@@ -35,14 +36,16 @@ public class productController {
         return productService.getProductById(id);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Product> getAllProducts() {
+
         return productService.getAllProducts();
     }
 
-    @PostMapping
+    @PostMapping()
     public Product createProduct(@RequestBody Product product){
-        return new Product();
+
+        return productService.createProduct(product);
     }
 
     @PatchMapping("/{id}")
@@ -51,8 +54,8 @@ public class productController {
     }
 
     @PutMapping("/{id}")
-    public Product replaceProduct(@PathVariable("id") Long id,@RequestBody Product product){
-        return new Product();
+    public Product replaceProduct(@PathVariable("id") int id,@RequestBody Product product) throws ProductNotFoundException {
+        return productService.replaceProduct(id,product);
     }
 
     @DeleteMapping("/{id}")

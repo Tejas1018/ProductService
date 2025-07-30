@@ -34,7 +34,7 @@ public class selfProductService implements ProductService {
 
     public Product createProduct(Product product) {
         Category category = product.getCategory();
-        //if this category does n't present in DB
+        //if this category doesn't present in DB
         //Create a category save the categroy in DB
         Optional<Category> optionalCategory = categoryRepository.findByName(category.getName());
         if(optionalCategory.isEmpty()){
@@ -64,25 +64,4 @@ public class selfProductService implements ProductService {
         return productRepository.save(productFromDB);
     }
 
-    public Product replaceProduct(long productId, Product product) throws ProductNotFoundException {
-
-        Optional<Product> optionalProduct = productRepository.findById(productId);
-        if(optionalProduct.isEmpty()){
-            throw new ProductNotFoundException("Product with" + productId + "doesn't exist");
-        }
-        Product productFromDB =  optionalProduct.get();
-
-        productFromDB.setName(product.getName());
-        productFromDB.setDescription(product.getDescription());
-        productFromDB.setPrice(product.getPrice());
-
-        Category category = product.getCategory();
-//        if(category.getId() == null){
-//            //save the category into Db
-//                category = categoryRepository.save(category);
-//        }
-        productFromDB.setCategory(category);
-
-        return productRepository.save(productFromDB);
-    }
 }
